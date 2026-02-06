@@ -7,13 +7,17 @@ X§U2 nVleft N002 N003 nVright nVSS 0 nStageOneOut nVDD AD8422
 R_gain N002 N003 2.21k
 R_load nFilterOut 0 510k
 C1 nStageOneOut nFilterOut 10µF
-X§U1 nFilterOut N001 nVDD nVSS nVout ADA4522-1
-R1 nVout N001 100k
+X§U1 nFilterOut N001 nVDD nVSS nStageTwoOut ADA4522-1
+R1 nStageTwoOut N001 100k
 R2 N001 0 1k
-Vref nVref 0 1.65V
+R3 nVout nStageTwoOut 100k
+R4 nVout nVDD 100k
 * Gain set to 10V/V
 .tran 0 10 0 10m
+* DC offset circuit
+* op amp gain stage
 * Gain set to 100V/V
+* instrumentation amplifier
 .lib AD8422.sub
 .lib ADA4522-1.lib
 .backanno
