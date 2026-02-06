@@ -1,4 +1,4 @@
-* C:\Users\devaw\Documents\UMN\2025-2026\Junior_Design\Electrocardiogram-Design-Project\SPICE\AD8422_First_Stage_ONLY.asc
+* C:\Users\devaw\Documents\UMN\2025-2026\Junior_Design\Electrocardiogram-Design-Project\SPICE\AD8422_NO_RLD.asc
 Vright nVright 0 SINE(0 0.5m 1)
 Vleft 0 nVleft SINE(0 0.5m 1)
 V1 nVDD 0 3.3
