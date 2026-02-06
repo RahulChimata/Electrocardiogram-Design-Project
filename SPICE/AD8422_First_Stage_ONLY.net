@@ -1,0 +1,20 @@
+* C:\Users\devaw\Documents\UMN\2025-2026\Junior_Design\Electrocardiogram-Design-Project\SPICE\AD8422_First_Stage_ONLY.asc
+Vright nVright 0 SINE(0 0.5m 1)
+Vleft 0 nVleft SINE(0 0.5m 1)
+V1 nVDD 0 3.3
+V2 0 nVSS 3.3
+X§U2 nVleft N002 N003 nVright nVSS 0 nStageOneOut nVDD AD8422
+R_gain N002 N003 2.21k
+R_load nFilterOut 0 510k
+C1 nStageOneOut nFilterOut 10µF
+X§U1 nFilterOut N001 nVDD nVSS nVout ADA4522-1
+R1 nVout N001 100k
+R2 N001 0 1k
+Vref nVref 0 1.65V
+* Gain set to 10V/V
+.tran 0 10 0 10m
+* Gain set to 100V/V
+.lib AD8422.sub
+.lib ADA4522-1.lib
+.backanno
+.end
