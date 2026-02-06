@@ -1,0 +1,4 @@
+#Ignore LTSpice output files
+*.raw
+*.log
+*.op.raw
