@@ -1,0 +1,33 @@
+* C:\Users\devaw\Documents\UMN\2025-2026\Junior_Design\Electrocardiogram-Design-Project\SPICE\AD8422_WITH_RLD.asc
+Vright nVright N002 SINE(2m 0.5m 1)
+Vleft N002 nVleft SINE(2m 0.5m 1)
+V1 nVDD nVref 1.65V
+V2 0 nVSS 3.3
+X§U2 nVleft nVCM_HI nVCM_LOW nVright nVSS 0 nStageOneOut nVDD AD8422
+R_gain nVCM_HI nVCM_LOW 4.42k
+R_load nFilterOut nVref 510k
+C1 nStageOneOut nFilterOut 10µF
+X§U1 nFilterOut N001 nVDD nVSS nStageTwoOut ADA4522-1
+R1 nStageTwoOut N001 100k
+R2 N001 nVref 1k
+V3 nVref 0 1.65
+R3 nVCM_HI N003 2.21k
+R4 N003 nVCM_LOW 2.21k
+X§U3 0 N003 nVDD nVSS N004 level1 Avol=1Meg GBW=10Meg Vos=0 En=0 Enk=0 In=0 Ink=0 Rin=500Meg
+R5 N004 N003 1Meg
+Vbody N002 nRLD_out SINE(0 0.3 0.1)
+R6 N004 nRLD_out 1k
+* Gain set to 20V/V
+.tran 0 20 0 10m
+* op amp gain stage
+* Gain set to 100V/V
+* instrumentation amplifier
+* Supply rails
+* Voltage input from body
+* High Pass Filter ~0.03Hz
+* Right Leg Drive (RLD) Circuit
+.lib AD8422.sub
+.lib ADA4522-1.lib
+.lib UniversalOpAmp1.lib
+.backanno
+.end
